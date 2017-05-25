@@ -25,7 +25,7 @@ set-executionpolicy bypass
 ```
 
 ## Run the Dialog scripts
-You'll run each of these scripts from the PowerShell prompt. When you run a script in PowerShell, you need to type in a ampersand "&" before the path to the script.
+You'll run each of these scripts from the PowerShell prompt. A quirk of PowerShell is that when you run a script in PowerShell, you need to type in a ampersand "&" before the path to the script. This tells PowerShell that you want to run the text in quotes as a script instead of interpreting it literally.
 
 Open the PowerShell window. Type in an "&". Then, just drag and drop the script itself to the PowerShell commandline to add its path to the prompt.
 
