@@ -17,10 +17,16 @@ You'll need just a few things to get started:
 ## Set up your PowerShell environment
 By default, PowerShell will only run "signed" scripts. The scripts in this repository are not signed. You can turn off the signed execution policy to allow running these scripts.
 
-1. Open a PowerShell window (Start | PowerShell)
+1. Open a PowerShell window (Start | Windows PowerShell)
 1. Type in "set-executionpolicy bypass"
 
 ## Run the Dialog scripts
+You'll run each of these scripts from the PowerShell prompt. When you run a script in PowerShell, you need to type in a ampersand "&" before the path to the script.
+
+Open the PowerShell window. Type in an "&". Then, just drag and drop the script itself to the PowerShell commandline to add its path to the prompt.
+
+PowerShell scripts have options, with tab completion. You can hit the TAB key to cycle through the available options. If you type "help" and then the path to the script, you'll see some help information that explains how to use the script.
+
 ### Get-DialogContents.ps1
 ```powershell
 get-dialogcontents.ps1 -path "c:\hotdocs\components.cmp" -dialog "Main Interview"
@@ -35,7 +41,7 @@ Will output something like:
  DRQ Foreclosure document requests TF
  DOC Demand for jury trial TF
  ```
-If you'd like to HIDE or SHOW all of the contents of the dialog, add the -before option:
+If you'd like to HIDE or SHOW all of the contents of the dialog, add the -before option and the text you want to add in front of the variable, surrounded by quotes:
 ```powershell
 get-dialogsummary.ps1 -path "c:\hotdocs\components.cmp" -dialog "Main Interview" -before "HIDE"
 ```
@@ -51,6 +57,8 @@ HIDE DOC Demand for jury trial TF
 HIDE DOC Motion to file answer and discovery TF
 HIDE DOC Request for docs at trial TF
 ```
+
+There's a symmetrical -after option that allows you to place text that will appear after the variable's name.
 
 ### Get-DialogSummary
 ```powershell
@@ -73,3 +81,4 @@ IF DEF No assignment of rights G TF RESULT + "«DEF No assignment of rights CO»
 IF DEF No superior possessory G TF RESULT + "No superior possessory rights«.p»" END IF
 RESULT + "«.pe»"
 ```
+This uses HotDocs paragraph "dot codes" to create a nice list of all of the options that were marked YES from the list, separated by an Oxford comma. Check HotDocs documentation if you'd like to alter the formatting of the list.
