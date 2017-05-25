@@ -10,15 +10,19 @@ Read more on my blog, [here](http://nonprofittechy.com/2017/05/03/using-powershe
 ## Using the scripts
 You'll need just a few things to get started:
 
+1. Download the files in this repository. Click the green "Clone or Download" button, and select "Download ZIP" if you aren't familiar with using the Git commandline or desktop tools.
 1. PowerShell (built in to Windows after Vista).
 1. A HotDocs component file.
 1. The name of a dialog in the component file.
 
 ## Set up your PowerShell environment
-By default, PowerShell will only run "signed" scripts. The scripts in this repository are not signed. You can turn off the signed execution policy to allow running these scripts.
+By default, PowerShell will only run "signed" scripts. The scripts in this repository are not signed. You need to turn off the signed execution policy to allow running these scripts.
 
 1. Open a PowerShell window (Start | Windows PowerShell)
-1. Type in "set-executionpolicy bypass"
+1. Type the text below:
+```powershell
+set-executionpolicy bypass
+```
 
 ## Run the Dialog scripts
 You'll run each of these scripts from the PowerShell prompt. When you run a script in PowerShell, you need to type in a ampersand "&" before the path to the script.
@@ -60,7 +64,7 @@ HIDE DOC Request for docs at trial TF
 
 There's a symmetrical -after option that allows you to place text that will appear after the variable's name.
 
-### Get-DialogSummary
+### Get-DialogSummary.ps1
 ```powershell
 get-dialogsummary.ps1 -path "c:\hotdocs\components.cmp" -dialog "Main Interview"
 ```
